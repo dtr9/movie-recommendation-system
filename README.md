@@ -53,8 +53,7 @@ http://localhost:8080/movie-recommendation/simulator
 
 ### 1. **Add a Movie**
 
-**POST** `/movie`
-
+**POST** `/movie`  
 Adds a new movie with a rank.
 
 **Request Body:**
@@ -74,8 +73,7 @@ Movie added successfully
 
 ### 2. **Get All Movies**
 
-**GET** `/movies`
-
+**GET** `/movies`  
 Returns all movies in the system.
 
 **Sample Response:**
@@ -91,8 +89,7 @@ Returns all movies in the system.
 
 ### 3. **Get Top N Movies by Prefix**
 
-**POST** `/top`
-
+**POST** `/top`  
 Returns the top N ranked movies that start with a given prefix.
 
 **Request Body:**
@@ -159,7 +156,7 @@ curl -X POST http://localhost:8080/movie-recommendation/simulator/top \
 ### `TopNQueryResponse`
 ```json
 {
-  "topMovies": ["MovieName1", "MovieName2"]
+  "topMovies": ["string"]
 }
 ```
 
@@ -180,18 +177,11 @@ curl -X POST http://localhost:8080/movie-recommendation/simulator/top \
 
 Make sure you’re using **Java 17+**
 
-**First, navigate to the project root where `pom.xml` is located:**
 ```bash
-cd /path/to/movie-recommendation
+./mvnw spring-boot:run
 ```
 
-#### Option 1: Run using Maven
-
-```bash
-mvn spring-boot:run
-```
-
-#### Option 2: Build and run the JAR
+Or, if using local Maven:
 
 ```bash
 mvn clean install
@@ -200,19 +190,26 @@ java -jar target/movie-recommendation-0.0.1-SNAPSHOT.jar
 
 ---
 
-### 🧪 Load Sample Movies (50 entries)
+## 📜 Preloaded Sample Data
 
-To quickly populate the system with 50 test movies:
+Want to load 50 movies quickly? Use one of the scripts below:
+
+### 🐧 For Mac/Linux:
 
 ```bash
-# Make the script executable (one-time)
+# Make the script executable (only once)
 chmod +x scripts/populate.sh
 
 # Run the script
 bash scripts/populate.sh
 ```
 
-(Or copy-paste the `curl` batch block from the full Markdown.)
+### 🪟 For Windows:
+
+```bat
+:: Just double-click or run from terminal
+scripts\populate.bat
+```
 
 ---
 
